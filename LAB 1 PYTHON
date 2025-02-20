@@ -1,0 +1,40 @@
+QUESTION 1
+
+name = input("What's your name?: ")
+print("Hello", name)
+Id = input("What's your student ID?:")
+print("Your ID is", Id)
+
+
+
+QUESTION 2
+
+var1 = int(input("Enter first value: "))
+var2 = int(input("Enter second value: "))
+
+sum = var1 + var2
+diff = var1 - var2
+prod = var1 * var2
+
+print("First Value: ", var1)
+print("Second Value: ", var2)
+print("Summation: ",sum)
+print("Difference: ",diff)
+print("Multiplication: ",prod)
+
+
+
+QUESTION 3
+
+student_name = input("Name: ")
+lab= int(input("Lab: "))
+mid= int(input("Midterm: "))
+final= int(input("Final: "))
+last_score = lab*0.25 + mid*0.35 + final*0.4
+print("Last Score: ", last_score)
+
+
+
+QUESTION 4
+
+print('*\n**\n***\n**\n*')
