@@ -1,0 +1,109 @@
+QUESTION 1
+
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    string name, id; 
+
+    cout<<"What is your name?"<<endl;
+    cin>>name;
+    cout<<"Hello " + name + "."<<endl;
+    cout<<"What is your student ID?"<<endl;
+    cin>>id;
+    cout<<"Your ID is " + id + "."<<endl; 
+
+    return 0;
+}
+
+
+
+
+QUESTION 2
+
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    int var1;
+    int var2;
+    
+    cout<< "Please enter first value: ";
+    cin>> var1;
+    cout<< "Please enter second value: ";
+    cin>> var2;
+    
+    int sum = var1 + var2;
+    int diff = var1 - var2;
+    int prod = var1 * var2;
+    
+    cout<<"Value 1: "<<var1<<endl; 
+    cout<<"Value 2: "<<var2<<endl;
+    
+    cout<<"Summation: "<<sum<<endl;
+    cout<<"Difference: "<<diff<<endl;
+    cout<<"Production: "<<prod<<endl;
+}
+
+
+
+
+QUESTION 3
+
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    string name; 
+    string surname;
+    
+
+
+
+    cout<<"What is your name? ";
+    cin>>name;
+    cout<<"What is your surname? ";
+    cin>>surname;
+
+    float lab_grade; 
+    float midterm_grade;
+    float final_grade;
+
+    cout<<"What is your lab grade? ";
+    cin>>lab_grade;
+    cout<<"What is your midterm grade? ";
+    cin>>midterm_grade;
+    cout<<"What is your final grade? ";
+    cin>>final_grade;
+
+
+
+    float last_score = (lab_grade * 25 / 100) + (midterm_grade * 35 / 100) + (final_grade * 40 / 100);
+
+    cout<<"Name: "<<name + " " + surname<<endl;
+    cout<<"Lab: "<<lab_grade<<endl;
+    cout<<"Midterm: "<<midterm_grade<<endl;
+    cout<<"Final: "<<final_grade<<endl;
+    cout<<"Last score: "<<last_score<<endl;
+   
+
+    
+
+    return 0;
+}
+
+
+
+
+QUESTION 4
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout<<"*\n**\n***\n**\n*"<<endl;
+    return 0;
+}
