@@ -30,6 +30,17 @@ cout<<"\n"<<endl;
         }
      }
 
+      //ALTERNATIVE
+
+      cout<<""<<endl;
+
+        for(int i=0; i<1000; i++){
+            if(words[i].substr(0,2)=="ha"){
+                cout<<words[i]<<" ";
+            }
+        }
+
+
 cout<<"\n"<<endl;
 
      //SCENARIO 3
