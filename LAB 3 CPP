@@ -1,0 +1,132 @@
+#include <iostream>
+#include <new>
+
+using namespace std;
+
+
+class Node {
+public:
+    int data;
+    Node *next;
+
+    Node (int d, Node *n)
+    {
+        data = d;
+        next = n;
+    }
+};
+
+class Queue{
+private:
+    Node* back;         /* sondaki eleman */
+    Node* front;        /* baþtaki eleman */
+
+public:
+    Queue(){
+    back = nullptr;     /* baş ve son boş bırakıldı*/
+    front = nullptr;
+
+    }
+
+    bool isEmpty() {
+     return back == nullptr && front == nullptr;    /* baş ve son boşsa kuyruk boştur */
+    }
+
+    void enqueue(int input) {
+
+            if(isEmpty()){
+
+            front=new Node(input, nullptr);
+            back=front;                                 /* boşsa yeni eleman ekleniyor. Baş ve son aynı yeri gösteriyor */
+            }
+
+            else {
+            back->next=new Node(input, nullptr);
+            back=back->next;                            /* back nexte bağlanıyor */
+            }
+
+        }
+    void dequeue(){
+    if(!isEmpty()){
+        Node *temp = front;                     // Silinecek düğümü geçici değişkene al
+        if (front == back){
+            front = nullptr;
+            back = nullptr;
+        } else {
+            front = front->next;
+        }
+        delete temp;                           // Hafızayı serbest bırak
+    }
+ }
+
+
+     void print() {
+        Node *p;
+        for(p=front; p!=nullptr; p=p->next) {
+            cout<<p->data<<" ";
+        }
+        cout << endl;
+    }
+
+    int size() {
+        Node *p;                                    /* tüm nodeları gezip node sayısını sayıyor */
+        int counter = 0;
+        for(p=front; p!=nullptr; p=p->next) {
+        counter++;
+        }
+
+        return counter;                             /* eleman sayısını return ile döndürdü */
+    }
+
+   int top() {
+    if (isEmpty()) {
+        cerr << "Queue is empty!" << endl;                 // Kuyruk boşsa
+        return -1;                                      // Hata durumu için -1 dönebiliriz.
+    }
+    return front->data;
+}
+
+};
+
+int main()
+{
+    Queue *q = new Queue();
+    cout<< "Adding Integer"<<endl;
+    cout<< "Removing Value"<<endl;
+    cout<< "Printing"<<endl;
+    cout<< "Size"<<endl;
+    cout<< "Top of the Values"<<endl;
+    cout<< "Removing Value"<<endl;
+    cout<< "Printing"<<endl;
+    cout<<endl;
+
+    // cout<<q->top();      kuyruk boş olursa denendi top methodunda hata mesajı verip -1 döndürüyor
+
+    cout<<endl;
+
+    q->enqueue(1);
+    q->enqueue(2);
+    q->enqueue(3);
+    q->enqueue(4);
+    q->enqueue(5);
+    q->enqueue(6);
+
+    q->dequeue();
+
+    q->print();
+
+    cout<<q->size();
+
+    cout<<endl;
+
+    cout<<q->top();
+
+    cout<<endl;
+
+    q->dequeue();
+
+    q->print();
+
+    return 0;
+}
+
