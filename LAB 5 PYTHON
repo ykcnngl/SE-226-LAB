@@ -1,0 +1,53 @@
+import random
+import string
+
+replacement_dict = {}
+for _ in range(5):
+    while True:
+        char = input('Enter a lowercase character: ').strip()
+        if char in string.ascii_lowercase and char not in replacement_dict:
+            break
+        print('Invalid input. Please try again.')
+
+    replace_set = set()
+    while len(replace_set) < 3:
+        replacement = input(f"Enter a replacement for '{char}' : ").strip()            // f-string kullandım kullanıcıdan aldığım inputu bastırırken 
+        if len(replacement) == 1 and replacement not in replace_set:
+            replace_set.add(replacement)
+        else:
+            print('Invalid input. Please try again.')
+
+    replacement_dict[char] = list(replace_set)
+
+passwords = []
+for _ in range(5):
+    password = ''.join(random.choices(string.ascii_lowercase, k=15))
+    passwords.append(password)
+
+mix_passwords = {"Strong": [], "Weak": []}
+
+for password in passwords:
+    modified_password = " "
+    replaced_count = 0
+
+    for char in password:
+        if char in replacement_dict:
+            modified_password += random.choice(replacement_dict[char])
+            replaced_count += 1
+        else:
+            modified_password += char
+
+    if replaced_count >= 4:
+        mix_passwords["Strong"].append(modified_password)
+    else:
+        mix_passwords["Weak"].append(modified_password)
+
+print("Generated Passwords:")
+
+print(" Strong Passwords: ")
+for Strong in mix_passwords["Strong"]:
+    print(Strong)
+
+print(" Weak Passwords: ")
+for Weak in mix_passwords["Weak"]:
+    print(Weak)
