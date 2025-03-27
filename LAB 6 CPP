@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+//QUESTION 4
+double harmonic_recursive(int n) {
+    if (n == 1)
+        return 1.0;
+    return 1.0 / n + harmonic_recursive(n - 1);
+}
+
+//QUESTION 5     OVERLOAD
+double harmonic_recursive() {
+    int n;
+    cout << "Enter n: ";
+    cin >> n;
+    return harmonic_recursive(n);
+}
+
+int main() {
+
+    int num;
+    cout << "Enter a number for harmonic series: ";
+    cin >> num;
+    cout << "Harmonic sum (with parameter): " << harmonic_recursive(num) << endl;
+
+    cout << "Harmonic sum (no parameter): " << harmonic_recursive() << endl;
+
+    return 0;
+}
