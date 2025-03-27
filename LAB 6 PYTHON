@@ -1,0 +1,59 @@
+from math import pi
+
+# QUESTION 1
+
+def factorial(x):
+
+    if x == 1 or x == 0:
+        return 1
+    else:
+        return x * factorial(x - 1)
+"""
+x = int(input("Enter a number: "))
+print(f"{x}! =" ,factorial(x))
+"""
+
+
+# QUESTION 2
+
+def sine_x(x, n):
+    x = x * (pi / 180)
+    term = lambda n: ((-1) ** n) * (x ** (2 * n + 1)) / factorial(2 * n + 1)
+
+    result = 0
+    for i in range(n):
+        result += term(i)
+    return result
+
+"""
+print("Enter the value of x in degrees: ")
+x = int(input())
+print("Enter the number of terms: ")
+n = int(input())
+print(sine_x(x,n))
+"""
+
+#QUESTION 3
+
+harmonic_sum = 0
+
+def harmonic_recursive(n):
+    """
+    Calculates the harmonic series sum recursively using a global variable.
+    Takes n as parameter but returns nothing.
+    """
+    global harmonic_sum
+    if n == 0:
+        return
+    harmonic_recursive(n - 1)
+    harmonic_sum += 1 / n
+
+n = int(input("Enter the value: "))
+print(harmonic_recursive(n))
+print(harmonic_sum)
+
+
+
+
+
+
